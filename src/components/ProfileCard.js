@@ -14,7 +14,11 @@ import {
 } from "../styledComponents/ProfileCardStyle";
 
 function ProfileCard({ data }) {
-  const myStyle = { margin: "18px", zIndex: 1, backdropFilter: "blur(5px)" };
+  const myStyle = {
+    margin: "18px",
+    zIndex: 1,
+    backdropFilter: "blur(5px)",
+  };
   const navigate = useNavigate();
   const dispatch = useDispatch();
 

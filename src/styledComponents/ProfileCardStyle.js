@@ -43,7 +43,6 @@ export const InnerWrapper = styled.div`
   justify-content: center;
   flex-direction: column;
   z-index: 1;
-  padding-top: 10px;
 `;
 
 export const Main = styled(InnerWrapper)`
@@ -77,7 +76,7 @@ export const Card = styled.div`
 
 export const Heading = styled.p`
   text-align: center;
-  padding: 70px 20px 20px 20px;
+  padding: 20px;
   font-size: 30px;
   font-family: "Roboto Slab", serif;
   font-weight: 600;

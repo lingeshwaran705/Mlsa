@@ -6,7 +6,7 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
-import { Footer, Inner, Menu } from "../styledComponents/HomeStyles";
+import { Inner, Menu, CloseIcon } from "../styledComponents/HomeStyles";
 import { useSelector, useDispatch } from "react-redux";
 import { openSidebar } from "../features/home/sideBar";
 import { setPage } from "../features/home/Route";
@@ -66,17 +66,14 @@ function Sidenav() {
           })}
           <div className="close"></div>
         </List>
-        <Footer>
-          <div className="glass">
-            <RandomQuote />
-            <IconButton
-              onClick={() => dispatch(openSidebar(false))}
-              sx={{ color: "white" }}
-            >
-              <i className="fas fa-arrow-right"></i>{" "}
-            </IconButton>
-          </div>
-        </Footer>
+        <CloseIcon>
+          <IconButton
+            onClick={() => dispatch(openSidebar(false))}
+            sx={{ color: "white" }}
+          >
+            <i className="fas fa-arrow-right"></i>{" "}
+          </IconButton>
+        </CloseIcon>
       </Menu>
     </>
   );

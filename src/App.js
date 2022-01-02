@@ -5,14 +5,16 @@ import Home from "./pages/Home";
 import Gallery from "./pages/Gallery";
 import CoreTeam from "./pages/CoreTeam";
 import PastEvents from "./pages/PastEvents";
-import Navbar from "./components/Navbar";
 import Registeration from "./pages/Registeration";
+import Sidenav from "./components/Sidenav";
+import FloatingActionButton from "./components/FloatingActionButton";
 
 function App() {
   return (
     <>
       <Router>
-        <Navbar />
+        <Sidenav />
+        <FloatingActionButton />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/video" element={<Video />} />

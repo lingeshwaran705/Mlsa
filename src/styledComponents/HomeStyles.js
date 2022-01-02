@@ -53,8 +53,7 @@ export const NavLink = styled.li`
 `;
 
 export const Container = styled.div`
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(5px);
+  background: black;
   box-shadow: 0px 14px 16px rgba(0, 0, 0, 0.4);
   width: 100%;
   color: white;
@@ -62,9 +61,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 8px 16px;
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: absolute;
   z-index: 2;
   border-bottom: 1px solid rgba(225, 225, 225, 0.7);
 `;
@@ -90,12 +87,12 @@ export const Menu = styled.div`
   align-items: start;
   flex-direction: column;
   justify-content: space-between;
-  position: absolute;
+  position: fixed;
   width: 300px;
   top: 0;
   left: ${(props) => (props.open ? 0 : "-100%")};
   transition: 0.3s ease;
-  z-index: 3;
+  z-index: 1000;
   height: 100vh;
   background: #222;
   padding-top: 10px;
@@ -148,34 +145,23 @@ export const Logo = styled.nav`
   }
 `;
 
-export const Footer = styled.div`
+//Video
+
+export const VideoWrap = styled.div`
+  width: 90%;
+  border-radius: 20px;
+  border: 2px solid white;
+  margin: auto;
+  video {
+    border-radius: 20px;
+  }
+`;
+
+export const CloseIcon = styled.div`
   width: 100%;
-  height: 20vh;
-  background: linear-gradient(40deg, dodgerblue, #f0f);
-  position: relative;
-  text-align: justify;
-  & .glass {
-    width: 95%;
-    background: rgba(225, 225, 225, 0.1);
-    color: white;
-    margin: auto;
-    height: 35vh;
-    font-family: "Roboto Slab", serif;
-    letter-spacing: 2px;
-    word-spacing: 3px;
-    position: absolute;
-    top: 0%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-left: 2px solid rgba(225, 225, 225, 0.4);
-    border-top: 2px solid rgba(225, 225, 225, 0.3);
-    border-radius: 10px;
-    padding: 10px;
-    box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.4);
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: column;
-    backdrop-filter: blur(2px);
+  & > button {
+    float: right;
+    margin: 20px;
+    font-size: 20px;
   }
 `;

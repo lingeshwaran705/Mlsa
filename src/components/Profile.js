@@ -4,10 +4,10 @@ import {
   InnerWrapper,
   Heading,
   Main,
-  OuterWrapper,
 } from "../styledComponents/ProfileCardStyle";
 import data from "../data/ProfileData";
 import ProfileCard from "./ProfileCard";
+import FloatingActionButton from "./FloatingActionButton";
 
 function Profile() {
   return (
