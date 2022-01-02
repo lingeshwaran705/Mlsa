@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const Pending = styled.div`
   color: white;
@@ -75,11 +75,6 @@ export const BarIcon = styled.div`
 
 //sidebar
 
-export const Wraper = styled.div`
-  width: 100%;
-  height: 100vh;
-`;
-
 export const Menu = styled.div`
   list-style-type: none;
   overflow: hidden;
@@ -123,11 +118,12 @@ export const Inner = styled.div`
   & i {
     font-size: 20px;
     color: ${(props) => (props.title === props.active ? "white" : "gray")};
-    color: ${(props) => (props.title === "Home" ? "orange !important" : "")};
+    color: ${(props) =>
+      props.title === "Home" ? "rgb(255, 0, 56) !important" : ""};
   }
   & > div {
-    font-size: 20px;
-    color: ${(props) => (props.title === "Home" ? "orange !important" : "")};
+    color: ${(props) =>
+      props.title === "Home" ? "rgb(255, 0, 56) !important" : ""};
     color: ${(props) => (props.title === props.active ? "white" : "grqy")};
   }
 `;
@@ -150,8 +146,7 @@ export const Logo = styled.nav`
 export const VideoWrap = styled.div`
   width: 90%;
   border-radius: 20px;
-  border: 2px solid white;
-  margin: auto;
+  margin: 60px auto;
   video {
     border-radius: 20px;
   }
@@ -164,4 +159,37 @@ export const CloseIcon = styled.div`
     margin: 20px;
     font-size: 20px;
   }
+`;
+
+//home
+
+export const Wraper = styled.div`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+`;
+
+export const TextAnimation = keyframes`
+  30%{
+    right:-50%;
+    transform:translateX(-50%);
+  }
+  50%{
+    transform:scale(2);
+    opacity:1;
+  }
+  90%{
+    opacity:0;
+  }
+`;
+export const Text = styled.h2`
+  background: -webkit-linear-gradient(left, dodgerblue, cyan);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 10px;
+  text-align: center;
 `;

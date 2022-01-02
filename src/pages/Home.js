@@ -1,34 +1,37 @@
-import React from "react";
-import { Wraper, VideoWrap } from "../styledComponents/HomeStyles";
-import { Pending } from "../styledComponents/HomeStyles";
+import React, { useEffect, useState } from "react";
+import { Wraper, VideoWrap, Text } from "../styledComponents/HomeStyles";
 import styled from "styled-components";
-import FloatingActionButton from "../components/FloatingActionButton";
-import Tilt from "react-parallax-tilt";
+
 function Home() {
+  var i = 0;
+  var [text, setText] = useState("");
+  const txt = "Welcome to MLSA";
+
+  useEffect(() => {
+    setInterval(() => {
+      if (i <= txt.length - 1) {
+        setText((prev) => prev + txt[i]);
+        i++;
+      }
+    }, 100);
+  }, []);
+
   return (
     <Wraper>
-      <>
-        <VideoWrap>
-          <video
-            src="/videos/mlsa.mp4"
-            autoPlay
-            loop
-            muted
-            controls
-            width="100%"
-            height="auto"
-          />
-        </VideoWrap>
-      </>
+      <Text id="type">{text}</Text>
+      <VideoWrap>
+        <video
+          src="/videos/mlsa.mp4"
+          autoPlay
+          loop
+          muted
+          controls
+          width="100%"
+          height="auto"
+        />
+      </VideoWrap>
     </Wraper>
   );
 }
-
-const Wrap = styled.div`
-  width: 100%;
-  height: 100vh;
-  background: black;
-  color: white;
-`;
 
 export default Home;

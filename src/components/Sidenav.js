@@ -11,7 +11,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { openSidebar } from "../features/home/sideBar";
 import { setPage } from "../features/home/Route";
 import { useNavigate } from "react-router-dom";
-import RandomQuote from "./RandomQuote";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import Layer3d from "./animations/Layer3d";
 
 const menu = [
   { id: 1, icon: "fas fa-home", title: "Home" },
@@ -45,7 +46,7 @@ function Sidenav() {
   return (
     <>
       <Menu open={sidebar}>
-        <List sx={{ width: "100%" }}>
+        <List sx={{ width: "100%", zIndex: 5 }}>
           {menu.map((item) => {
             return (
               <Inner active={page} key={item.id} title={item.title}>
@@ -66,12 +67,13 @@ function Sidenav() {
           })}
           <div className="close"></div>
         </List>
+        <Layer3d />
         <CloseIcon>
           <IconButton
             onClick={() => dispatch(openSidebar(false))}
             sx={{ color: "white" }}
           >
-            <i className="fas fa-arrow-right"></i>{" "}
+            <ArrowForwardIcon sx={{ width: "25px" }} />
           </IconButton>
         </CloseIcon>
       </Menu>
