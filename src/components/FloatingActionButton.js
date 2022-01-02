@@ -7,13 +7,15 @@ import { useSelector, useDispatch } from "react-redux";
 function FloatingActionButton() {
   const dispatch = useDispatch();
   const click = useSelector((state) => state.sidebar.value);
+  const page = useSelector((state) => state.page.value);
 
   const clickHandler = () => {
     dispatch(openSidebar(!click));
+    console.log(page);
   };
 
   return (
-    <Fab click={click}>
+    <Fab page={page} click={click}>
       <CardActionArea sx={{ color: "black" }}>
         <Wrap click={click} onClick={clickHandler}>
           <span></span>
@@ -47,7 +49,7 @@ const Fab = styled.div`
   transition: 1s;
   @media (max-width: 768px) {
     animation: ${(props) =>
-      props.click
+      props.click || props.page === "video"
         ? css`
             ${Fade} 1s forwards ease
           `

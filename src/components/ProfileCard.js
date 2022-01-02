@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { CardActionArea, IconButton } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import { setVideo } from "../features/home/videoSlice";
+import { setPage } from "../features/home/Route";
+
 import Tilt from "react-parallax-tilt";
 import {
   Card,

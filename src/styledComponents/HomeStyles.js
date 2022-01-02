@@ -150,6 +150,9 @@ export const VideoWrap = styled.div`
   video {
     border-radius: 20px;
   }
+  @media (min-width: 768px) {
+    width: 700px;
+  }
 `;
 
 export const CloseIcon = styled.div`
@@ -158,6 +161,7 @@ export const CloseIcon = styled.div`
     float: right;
     margin: 20px;
     font-size: 20px;
+    cursor: pointer;
   }
 `;
 
@@ -170,7 +174,10 @@ export const Wraper = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  overflow: hidden;
+  overflow: auto;
+  @media (min-width: 550px) {
+    height: auto !important;
+  }
 `;
 
 export const TextAnimation = keyframes`
