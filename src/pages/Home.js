@@ -7,7 +7,7 @@ import Tilt from "react-parallax-tilt";
 function Home() {
   return (
     <Wraper>
-      <Tilt>
+      <>
         <VideoWrap>
           <video
             src="/videos/mlsa.mp4"
@@ -19,7 +19,7 @@ function Home() {
             height="auto"
           />
         </VideoWrap>
-      </Tilt>
+      </>
     </Wraper>
   );
 }
