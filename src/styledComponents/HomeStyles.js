@@ -14,44 +14,6 @@ export const Pending = styled.div`
   line-height: 30px;
 `;
 
-// * navbar
-
-export const NavBar = styled.ul`
-  list-style-type: none;
-  overflow: hidden;
-  display: flex;
-  align-items: start;
-  justify-content: space-between;
-  @media (max-width: 700px) {
-    display: none;
-  }
-`;
-
-export const NavLink = styled.li`
-  padding: 10px 16px;
-  transition: all 0.4s;
-  cursor: pointer;
-  color: ${(props) => (props.active === props.title ? "#fff" : "#aaa")};
-  letter-spacing: 1;
-  font-family: "Roboto Slab", serif;
-  &:hover {
-    color: #fff;
-  }
-
-  &::after {
-    content: "";
-    width: ${(props) => (props.title === props.active ? "100%" : "0")};
-    height: 2px;
-    background: orange;
-    display: block;
-    margin: auto;
-    transition: 0.3s;
-  }
-  &:hover::after {
-    width: 100%;
-  }
-`;
-
 export const Container = styled.div`
   background: black;
   box-shadow: 0px 14px 16px rgba(0, 0, 0, 0.4);
@@ -180,20 +142,7 @@ export const Wraper = styled.div`
   }
 `;
 
-export const TextAnimation = keyframes`
-  30%{
-    right:-50%;
-    transform:translateX(-50%);
-  }
-  50%{
-    transform:scale(2);
-    opacity:1;
-  }
-  90%{
-    opacity:0;
-  }
-`;
-export const Text = styled.h2`
+export const LinearGradientText = styled.h2`
   background: -webkit-linear-gradient(left, dodgerblue, cyan);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

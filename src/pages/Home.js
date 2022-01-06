@@ -1,35 +1,24 @@
-import React, { useEffect, useState } from "react";
-import { Wraper, VideoWrap, Text } from "../styledComponents/HomeStyles";
+import React from "react";
+import { Wraper, VideoWrap } from "../styledComponents/HomeStyles";
 import styled from "styled-components";
 import Arrow from "../components/animations/Arrow";
 import { Avatar } from "../styledComponents/ProfileCardStyle";
 import FloatingActionButton from "../components/FloatingActionButton";
-import Greeting from "../components/Greeting";
+import TypeWriter from "../components/animations/TypeWriter";
 
 function Home() {
-  var i = 0;
-  var [text, setText] = useState("");
-  const txt = "Welcome to MLSA SREC";
-
-  useEffect(() => {
-    setTimeout(() => {
-      setInterval(() => {
-        if (i <= txt.length - 1) {
-          setText((prev) => prev + txt[i]);
-          i++;
-        }
-      }, 150);
-    }, 200);
-  }, []);
+  const text = "Welcome to MLSA SREC";
 
   return (
     <Wraper>
       <FloatingActionButton />
+
       <Avatar>
         <AvatarImg name="/img/mlsa.jpeg" />
       </Avatar>
 
-      <Text id="type">{text}</Text>
+      <TypeWriter text={text} />
+
       <VideoWrap>
         <video
           src="/videos/mlsa.mp4"
