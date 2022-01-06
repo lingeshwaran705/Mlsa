@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Arrow from "../components/animations/Arrow";
 import { Avatar } from "../styledComponents/ProfileCardStyle";
 import FloatingActionButton from "../components/FloatingActionButton";
+import Greeting from "../components/Greeting";
 
 function Home() {
   var i = 0;
@@ -27,6 +28,7 @@ function Home() {
       <Avatar>
         <AvatarImg name="/img/mlsa.jpeg" />
       </Avatar>
+      <Greeting />
 
       <Text id="type">{text}</Text>
       <VideoWrap>
