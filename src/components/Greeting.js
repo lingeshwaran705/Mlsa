@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 function Greeting() {
   const date = new Date();
-  return <Greeting>{JSON.stringify(date)}</Greeting>;
+  return <Wrap>{JSON.stringify(date)}</Wrap>;
 }
 
 export default Greeting;

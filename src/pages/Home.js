@@ -28,7 +28,6 @@ function Home() {
       <Avatar>
         <AvatarImg name="/img/mlsa.jpeg" />
       </Avatar>
-      <Greeting />
 
       <Text id="type">{text}</Text>
       <VideoWrap>

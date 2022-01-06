@@ -69,9 +69,8 @@ function Sidenav() {
         </List>
         <Layer3d />
         <CloseIcon>
-          <IconButton>
+          <IconButton onClick={() => dispatch(openSidebar(false))}>
             <ArrowForwardIcon
-              onClick={() => dispatch(openSidebar(false))}
               sx={{ width: "25px", height: "30px", fill: "white" }}
             />
           </IconButton>

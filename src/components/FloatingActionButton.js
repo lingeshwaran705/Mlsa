@@ -11,13 +11,12 @@ function FloatingActionButton() {
 
   const clickHandler = () => {
     dispatch(openSidebar(!click));
-    console.log(page);
   };
 
   return (
-    <Fab page={page} click={click}>
+    <Fab page={page} onClick={clickHandler} click={click}>
       <CardActionArea sx={{ color: "black" }}>
-        <Wrap click={click} onClick={clickHandler}>
+        <Wrap click={click}>
           <span></span>
           <span></span>
           <span></span>
