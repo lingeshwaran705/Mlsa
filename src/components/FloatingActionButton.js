@@ -15,7 +15,7 @@ function FloatingActionButton() {
 
   return (
     <Fab page={page} onClick={clickHandler} click={click}>
-      <CardActionArea sx={{ color: "black" }}>
+      <CardActionArea sx={{ color: "black", borderRadius: "50%" }}>
         <Wrap click={click}>
           <span></span>
           <span></span>
@@ -57,14 +57,14 @@ const Fab = styled.div`
 `;
 
 const Wrap = styled.div`
-  background: linear-gradient(-30deg, #333, black);
-  width: 50px;
-  height: 50px;
+  background: linear-gradient(-30deg, #222, #111);
+  width: 55px;
+  height: 55px;
   padding: 10px;
   display: flex;
   justify-content: center;
   flex-direction: column;
-
+  border-radius: 50%;
   span {
     background: linear-gradient(to right, dodgerblue, cyan);
     width: 40%;
@@ -75,7 +75,7 @@ const Wrap = styled.div`
   }
   & :first-child {
     width: 50%;
-    width: ${(props) => (props.click ? "100%" : "50%")};
+    width: ${(props) => (props.click ? "95%" : "50%")};
 
     transform: ${(props) => (props.click ? "rotate(-45deg)" : "rotate(0)")};
   }
@@ -86,7 +86,7 @@ const Wrap = styled.div`
   }
   & :last-child {
     margin: 0;
-    width: ${(props) => (props.click ? "100%" : "30%")};
+    width: ${(props) => (props.click ? "95%" : "30%")};
     transform: ${(props) => (props.click ? "rotate(-45deg)" : "rotate(0)")};
   }
 `;

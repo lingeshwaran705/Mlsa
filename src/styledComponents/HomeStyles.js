@@ -103,20 +103,6 @@ export const Logo = styled.nav`
   }
 `;
 
-//Video
-
-export const VideoWrap = styled.div`
-  width: 90%;
-  border-radius: 20px;
-  margin: 60px auto;
-  video {
-    border-radius: 20px;
-  }
-  @media (min-width: 768px) {
-    width: 700px;
-  }
-`;
-
 export const CloseIcon = styled.div`
   width: 100%;
   & > button {
@@ -129,6 +115,26 @@ export const CloseIcon = styled.div`
 
 //home
 
+const bgAnimation = keyframes`
+0%{
+  background-position:0% 0%;
+}
+  20%{
+    background-position:20% 0%;
+  }
+  40%{
+    background-position:40% 0%;
+  }
+  
+  60%{
+    background-position:60% 0%;
+  }
+  80%{
+    background-position:80% 0%;
+  }
+  
+`;
+
 export const Wraper = styled.div`
   width: 100%;
   height: 100vh;
@@ -136,16 +142,33 @@ export const Wraper = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  overflow: auto;
-  @media (min-width: 550px) {
-    height: auto !important;
-  }
+  overflow: hidden;
+  background-image: url(/img/network.jpg);
+  background-position: center;
+  background-size: cover;
+  animation: ${bgAnimation} 50s linear infinite;
 `;
 
 export const LinearGradientText = styled.h2`
-  background: -webkit-linear-gradient(left, dodgerblue, cyan);
+  color: white;
+  background: ${(props) =>
+    props.color ? "-webkit-linear-gradient(left, dodgerblue, cyan)" : ""};
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: ${(props) =>
+    props.color ? "transparent" : "white"};
   padding: 10px;
   text-align: center;
+  @media (max-width: 550px) {
+    font-size: 30px;
+  }
+`;
+
+export const HighLight = styled.div`
+  font-size: 30px;
+  color: white;
+  span {
+    background: -webkit-linear-gradient(left, white, cyan);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 `;

@@ -17,7 +17,11 @@ function TypeWriter(props) {
     console.log(props.text);
   }, []);
 
-  return <LinearGradientText>{text}</LinearGradientText>;
+  return (
+    <LinearGradientText as="span" {...props}>
+      {text}
+    </LinearGradientText>
+  );
 }
 
 export default TypeWriter;
