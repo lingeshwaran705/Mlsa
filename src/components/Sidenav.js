@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
 import {
+  CardActionArea,
   IconButton,
   List,
   ListItem,
+  ListItemButton,
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
@@ -30,7 +32,6 @@ function Sidenav() {
 
   const clickHandler = (p) => {
     navigate(p);
-
     setTimeout(() => {
       dispatch(setPage(p));
       dispatch(openSidebar(false));
@@ -50,18 +51,23 @@ function Sidenav() {
           {menu.map((item) => {
             return (
               <Inner active={page} key={item.id} title={item.title}>
-                <ListItem
-                  onClick={() =>
-                    clickHandler(item.title === "Home" ? "/" : item.title)
-                  }
-                  sx={{ width: "100%" }}
-                  button
-                >
-                  <ListItemIcon>
-                    <i className={item.icon}></i>
-                  </ListItemIcon>
-                  <ListItemText primary={item.title} />
-                </ListItem>
+                <CardActionArea disableRipple>
+                  <ListItem
+                    onClick={() =>
+                      clickHandler(item.title === "Home" ? "/" : item.title)
+                    }
+                    sx={{ width: "100%" }}
+                  >
+                    <a href="#home">
+                      <ListItemButton disableGutters>
+                        <ListItemIcon>
+                          <i className={item.icon}></i>
+                        </ListItemIcon>
+                        <ListItemText primary={item.title} />
+                      </ListItemButton>
+                    </a>
+                  </ListItem>
+                </CardActionArea>
               </Inner>
             );
           })}

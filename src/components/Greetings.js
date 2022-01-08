@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled, { keyframes, css } from "styled-components";
 import { HighLight } from "../styledComponents/HomeStyles";
 
-function Greetings() {
+function Greetings(props) {
   const [hour, setHour] = useState();
   const [greetTxt, setGreetTxt] = useState("");
 
@@ -24,8 +24,13 @@ function Greetings() {
   }, []);
 
   return (
-    <Wraper>
-      <h1>Hey There! {greetTxt}</h1>
+    <Wraper animate={props.animate}>
+      <h1>
+        Hey There!{" "}
+        <HighLight greet>
+          <span>{greetTxt}</span>
+        </HighLight>
+      </h1>
     </Wraper>
   );
 }
@@ -57,7 +62,12 @@ const Wraper = styled.div`
   overflow: hidden;
   position: absolute;
   transition: 0.3s;
-  animation: ${hide} 1s ease 5s forwards;
+  animation: ${(props) =>
+    props.animate
+      ? css`
+          ${hide} 1s ease 5s forwards
+        `
+      : ""};
   h1 {
     color: white;
     position: absolute;
@@ -78,6 +88,11 @@ const Wraper = styled.div`
       padding: 3px;
     }
 
-    animation: ${slide} 2s ease 1s forwards, ${zoom} 3s ease 4s forwards;
+    animation: ${(props) =>
+      props.animate
+        ? css`
+            ${slide} 2s ease 1s forwards, ${zoom} 3s ease 4s forwards
+          `
+        : ""};
   }
 `;

@@ -3,13 +3,15 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import styled, { keyframes } from "styled-components";
 import { IconButton } from "@mui/material";
 
-function Arrow() {
+function Arrow(props) {
   return (
     <Wrap>
       <IconButton sx={{ color: "white" }}>
-        <KeyboardArrowDownIcon
-          sx={{ fill: "white", width: "60px", height: "40px" }}
-        />
+        <a href={`${props.link}`}>
+          <KeyboardArrowDownIcon
+            sx={{ fill: "white", width: "60px", height: "40px" }}
+          />
+        </a>
       </IconButton>
     </Wrap>
   );
@@ -37,10 +39,7 @@ const Bounce = keyframes`
 
 const Wrap = styled.div`
   position: absolute;
-  bottom: 30px;
+  bottom: 2vh;
   animation: ${Bounce} 1.5s infinite;
-  display: none;
-  @media (max-width: 550px) {
-    display: block;
-  }
+  display: block;
 `;

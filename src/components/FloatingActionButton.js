@@ -40,20 +40,18 @@ const Fab = styled.div`
   bottom: 5vh;
   right: 5vh;
   overflow: hidden;
-  z-index: 4;
+  z-index: 1000;
   border-radius: 50%;
   border-top: 1px solid rgba(225, 225, 225, 0.2);
   border-left: 1px solid rgba(225, 225, 225, 0.2);
   box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.5);
   transition: 1s;
-  @media (max-width: 768px) {
-    animation: ${(props) =>
-      props.click || props.page === "video"
-        ? css`
-            ${Fade} 1s forwards ease
-          `
-        : ""};
-  }
+  animation: ${(props) =>
+    props.click || props.page === "video"
+      ? css`
+          ${Fade} 1s forwards ease
+        `
+      : ""};
 `;
 
 const Wrap = styled.div`

@@ -4,13 +4,12 @@ export const Wrap = styled.section`
   background: black;
   height: 100vh;
   width: 100vw;
-  overflow: initial;
   &::before {
     content: "";
     position: fixed;
     top: 0;
     left: 0;
-    background: linear-gradient(30deg, #2196f3, darkorchid, darkorchid);
+    background: linear-gradient(-150deg, blue, cyan);
     transform: translate(-50%, -50%);
     width: 400px;
     height: 450px;
@@ -21,7 +20,7 @@ export const Wrap = styled.section`
   &::after {
     content: "";
     position: fixed;
-    bottom: 5%;
+    bottom: -5%;
     right: 0;
     background: linear-gradient(to right bottom, #f00, #f0f);
     transform: translateX(55%);

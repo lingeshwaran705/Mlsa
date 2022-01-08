@@ -7,12 +7,14 @@ import CoreTeam from "./pages/CoreTeam";
 import PastEvents from "./pages/PastEvents";
 import Registeration from "./pages/Registeration";
 import Sidenav from "./components/Sidenav";
+import Backdrop from "./components/animations/Backdrop";
 
 function App() {
   return (
     <>
       <Router>
         <Sidenav />
+        <Backdrop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Home" element={<Home />} />

@@ -6,11 +6,6 @@ body {
   background-color: black;
 }
 
-html {
-  width: 100%;
-  overflow: hidden;
-}
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -25,4 +20,32 @@ code {
 
 a {
   text-decoration: none;
+}
+
+@media screen and (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 10px;
+    margin: 10px;
+  }
+
+  ::-webkit-scrollbar-track-piece {
+    background: unset;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #666;
+  }
+}
+
+.css-122ling-MuiListItem-root {
+  padding: 0 !important;
+}
+
+.css-anxp77-MuiButtonBase-root-MuiListItemButton-root {
+  padding-left: 20px !important;
 }

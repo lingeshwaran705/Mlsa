@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 
 export const Pending = styled.div`
   color: white;
@@ -83,10 +83,12 @@ export const Inner = styled.div`
     color: ${(props) =>
       props.title === "Home" ? "rgb(255, 0, 56) !important" : ""};
   }
-  & > div {
+  & a {
+    display: block;
+    width: 100%;
     color: ${(props) =>
       props.title === "Home" ? "rgb(255, 0, 56) !important" : ""};
-    color: ${(props) => (props.title === props.active ? "white" : "grqy")};
+    color: ${(props) => (props.title === props.active ? "white" : "gray")};
   }
 `;
 
@@ -115,26 +117,6 @@ export const CloseIcon = styled.div`
 
 //home
 
-const bgAnimation = keyframes`
-0%{
-  background-position:0% 0%;
-}
-  20%{
-    background-position:20% 0%;
-  }
-  40%{
-    background-position:40% 0%;
-  }
-  
-  60%{
-    background-position:60% 0%;
-  }
-  80%{
-    background-position:80% 0%;
-  }
-  
-`;
-
 export const Wraper = styled.div`
   width: 100%;
   height: 100vh;
@@ -144,9 +126,9 @@ export const Wraper = styled.div`
   flex-direction: column;
   overflow: hidden;
   background-image: url(/img/network.jpg);
-  background-position: center;
+  background-position: 10% 0%;
   background-size: cover;
-  animation: ${bgAnimation} 50s linear infinite;
+  position: relative;
 `;
 
 export const LinearGradientText = styled.h2`
@@ -164,11 +146,46 @@ export const LinearGradientText = styled.h2`
 `;
 
 export const HighLight = styled.div`
-  font-size: 30px;
+  font-size: 25px;
   color: white;
+  font-family: "Roboto Slab", serif;
+  font-weight: 700;
+  word-spacing: 5px;
   span {
-    background: -webkit-linear-gradient(left, white, cyan);
+    font-size: ${(props) => (props.greet ? "35px" : "")};
+    font-weight: 700;
+    font-family: "Roboto Slab", serif;
+    background: -webkit-linear-gradient(left, dodgerblue, cyan);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+  @media (max-width: 768px) {
+    padding-top: ${(props) => (props.greet ? "" : "30px")};
+  }
+`;
+
+export const Row = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+
+export const Column = styled.div`
+  width: 49.9999%;
+  @media (max-width: 928px) {
+    width: 80%;
+  }
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 10px;
+  }
+`;
+
+export const Image = styled.img`
+  width: 100%;
 `;

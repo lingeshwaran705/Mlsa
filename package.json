@@ -16,6 +16,7 @@
     "react-parallax-tilt": "^1.5.84",
     "react-redux": "^7.2.6",
     "react-scripts": "5.0.0",
+    "react-scroll-motion": "^0.2.1",
     "styled-components": "^5.3.3",
     "web-vitals": "^2.1.2"
   },

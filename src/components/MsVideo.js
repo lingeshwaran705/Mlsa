@@ -28,15 +28,28 @@ const grow = keyframes`
 `;
 
 export const VideoWrap = styled.div`
-  width: 90%;
   border-radius: 20px;
-  margin: 60px auto;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   video {
     transform: scale(0);
     border-radius: 20px;
-    animation: ${grow} 2s ease 4s forwards;
+    animation: ${grow} 2s ease 1s forwards;
+    width: 100%;
+    margin: auto;
+    @media (max-width: 768px) {
+      width: 80%;
+    }
+    @media (max-width: 620px) {
+      width: 90%;
+    }
+    @media (max-width: 400px) {
+      width: 97%;
+    }
   }
-  @media (min-width: 768px) {
-    width: 700px;
+  @media (max-width: 400px) {
+    padding: 20px 0px 20px 0px;
   }
 `;
