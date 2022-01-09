@@ -1,25 +1,51 @@
 import { CardActionArea } from "@mui/material";
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 import styled from "styled-components";
+import Slide from "./animations/Slide";
 
 function DomainCard(props) {
+  const screenPosition = window.innerHeight;
+  const [animate, setAnimate] = useState(true);
+  const domainCardRef = useRef(null);
+
+  const handleScroll = () => {
+    if (domainCardRef.current) {
+      const domainCardPosition =
+        domainCardRef.current.getBoundingClientRect().top;
+      if (domainCardPosition < screenPosition) {
+        setAnimate(true);
+      } else {
+        setAnimate(false);
+      }
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <Wrap>
-      <CardActionArea
-        sx={{
-          color: "rgba(0,0,225,0.6)",
-          borderRadius: "10px",
-          backdropFilter: "blur(10px)",
-        }}
-      >
-        <Container {...props}>
-          <Avatar>
-            <AvatarImg src={props.img} />
-          </Avatar>
-          <Content>{props.title}</Content>
-        </Container>
-      </CardActionArea>
-    </Wrap>
+    <Slide animate={animate} ref={domainCardRef} {...props}>
+      <Wrap>
+        <CardActionArea
+          sx={{
+            color: "rgba(0,0,225,0.6)",
+            borderRadius: "10px",
+            backdropFilter: "blur(10px)",
+          }}
+        >
+          <Container {...props}>
+            <Avatar>
+              <AvatarImg src={props.img} />
+            </Avatar>
+            <Content>{props.title}</Content>
+          </Container>
+        </CardActionArea>
+      </Wrap>
+    </Slide>
   );
 }
 
@@ -27,15 +53,21 @@ export default DomainCard;
 
 const Wrap = styled.div`
   width: 90%;
-  margin: 0 30px;
-  backdrop-filter: blur(5px);
   @media (max-width: 768px) {
     margin: 30px auto;
+    width: 90%;
+  }
+  & > button {
+    @media (min-width: 768px) {
+      height: 400px !important;
+      width: 300px !important;
+    }
   }
 `;
 
 const Container = styled.div`
   width: 100%;
+  height: 100%;
   background: linear-gradient(
     130deg,
     rgba(225, 225, 225, 0.1),
@@ -49,7 +81,6 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   padding: 20px;
-  position: relative;
   &:hover {
     box-shadow: 0 0 16px rgba(0, 0, 225, 0.4);
   }
@@ -69,12 +100,7 @@ const Container = styled.div`
       props.right ? "10px 50% 50% 10%" : "50% 10% 10% 50%"};
     z-index: -1;
     @media (min-width: 768px) {
-      border-radius: 50%;
-      height: 200px;
-      width: 200px;
-      top: 50%;
-      left: 50%;
-      background: linear-gradient(150deg, cyan, blue);
+      display: none;
     }
   }
 `;
@@ -86,6 +112,9 @@ const AvatarImg = styled.div`
   background-size: cover;
   background-position: center;
   border-radius: 50%;
+  @media (min-width: 768px) {
+    border-radius: 0;
+  }
 `;
 
 const Avatar = styled.div`
@@ -94,6 +123,16 @@ const Avatar = styled.div`
   border-radius: 50%;
   padding: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+  @media (min-width: 768px) {
+    border-radius: 0;
+    width: 100%;
+    height: 50%;
+  }
+  @media (max-width: 325px) {
+    width: 80px;
+    height: 80px;
+  }
+  flex-shrink: 0;
 `;
 
 const Content = styled.span`
@@ -103,6 +142,10 @@ const Content = styled.span`
   letter-spacing: 1px;
   margin: auto;
   @media (min-width: 768px) {
-    padding: 30px;
+    padding: 30px 0;
+  }
+  @media (max-width: 325px) {
+    font-size: 18px;
+    letter-spacing: 0;
   }
 `;

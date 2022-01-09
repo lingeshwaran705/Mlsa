@@ -18,21 +18,36 @@ const slide = keyframes`
     }
 `;
 
-const fade = keyframes`
-    to{
-        opacity:0;
-    }
-`;
-
 const Wrap = styled.div`
-  width: 100%;
   transform: ${(props) =>
-    props.to === "right" ? "translateX(-200px)" : "translateX(200px)"};
-  opacity: 0;
+    props.right ? "translateX(-200px)" : "translateX(200px)"};
+  opacity: ${(props) => (props.animate ? "" : "0")};
+  trasition: all 0.5s;
   animation: ${(props) =>
     props.animate
       ? css`
           ${slide} 1s ease forwards
         `
-      : "${fade} 1s forwards"};
+      : ""};
+  @media (max-width: 768px) {
+    width: 100%;
+    margin: 0;
+  }
+  margin: 30px;
+  backdrop-filter: blur(10px);
+  &::after {
+    content: "";
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(20deg, cyan, blue);
+    border-radius: 50%;
+    position: absolute;
+    top: 60%;
+    left: 20%;
+    transform: rotate(90deg);
+    z-index: -1;
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
 `;

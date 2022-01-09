@@ -18,12 +18,12 @@ function HomeCard() {
     if (logoRef.current && fadeRef.current) {
       const logoPosition = logoRef.current.getBoundingClientRect().top;
       const glassPosition = fadeRef.current.getBoundingClientRect().top;
-      if (logoPosition < screenPosition / 1.2) {
+      if (logoPosition < screenPosition - 20) {
         setAnimate((prev) => ({ ...prev, logo: true }));
       } else {
         setAnimate((prev) => ({ ...prev, logo: false }));
       }
-      if (glassPosition < screenPosition / 1.2) {
+      if (glassPosition < screenPosition) {
         setAnimate((prev) => ({ ...prev, fade: true }));
       } else {
         setAnimate((prev) => ({ ...prev, fade: false }));
@@ -40,7 +40,12 @@ function HomeCard() {
 
   return (
     <Card id="motive">
-      <Logo animate={animate.logo} ref={logoRef} colorIndex={1} text="Motive" />
+      <Logo
+        animate={animate.logo}
+        ref={logoRef}
+        colorIndex={1}
+        text="Objective"
+      />
       <Glass animate={animate.fade} ref={fadeRef}>
         {objective}
       </Glass>

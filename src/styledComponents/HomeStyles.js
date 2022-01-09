@@ -90,6 +90,12 @@ export const Inner = styled.div`
       props.title === "Home" ? "rgb(255, 0, 56) !important" : ""};
     color: ${(props) => (props.title === props.active ? "white" : "gray")};
   }
+  & li {
+    padding: 0;
+  }
+  & div {
+    padding-left: 10px;
+  }
 `;
 
 export const Logo = styled.nav`
