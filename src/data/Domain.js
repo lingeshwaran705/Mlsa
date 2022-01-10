@@ -41,24 +41,24 @@ export const technical = [
 
 export const nonTechnical = [
   {
-    key: 0,
+    key: 10,
     title: "Editing",
     img: "nonTech/editing.jpg",
     right: true,
   },
   {
-    key: 1,
+    key: 11,
     title: "Content Writing",
     img: "nonTech/contentWriting.jpg",
   },
   {
-    key: 2,
+    key: 12,
     title: "Social Media Marketing",
     img: "nonTech/socialMediaMarketing.png",
     right: true,
   },
   {
-    key: 3,
+    key: 13,
     title: "Event Management",
     img: "nonTech/eventManagement.jpg",
   },

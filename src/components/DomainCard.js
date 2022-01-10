@@ -55,7 +55,7 @@ function DomainCard(props) {
   );
 }
 
-export default DomainCard;
+export default React.memo(DomainCard);
 
 const Wrap = styled.div`
   width: 90%;

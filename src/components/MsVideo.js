@@ -19,7 +19,7 @@ function MsVideo() {
   );
 }
 
-export default MsVideo;
+export default React.memo(MsVideo);
 
 const grow = keyframes`
     to{

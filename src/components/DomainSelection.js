@@ -3,9 +3,9 @@ import styled from "styled-components";
 import Logo from "./animations/Logo";
 import DomainCard from "./DomainCard";
 import Arrow from "./animations/Arrow";
-import Domains from "./Domains";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setDomain, setOpen } from "../features/home/domain";
+import Domains from "./Domains";
 
 function DomainSelection() {
   const logoRef = useRef(null);
@@ -53,8 +53,8 @@ function DomainSelection() {
           title="Non-Technical"
         />
         <Arrow link="#home" />
+        <Domains />
       </Wrap>
-      <Domains />
     </>
   );
 }

@@ -26,7 +26,7 @@ function FloatingActionButton() {
   );
 }
 
-export default FloatingActionButton;
+export default React.memo(FloatingActionButton);
 
 const Fade = keyframes`
   to{

@@ -9,7 +9,7 @@ const Fade = React.forwardRef((props, ref) => {
   );
 });
 
-export default Fade;
+export default React.memo(Fade);
 
 const fade = keyframes`
 from{

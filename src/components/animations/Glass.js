@@ -17,7 +17,7 @@ const Glass = React.forwardRef((props, ref) => {
   );
 });
 
-export default Glass;
+export default React.memo(Glass);
 
 const Wrap = styled.div`
   width: 90%;

@@ -30,7 +30,7 @@ function Domains() {
   );
 }
 
-export default Domains;
+export default React.memo(Domains);
 
 const Header = styled.header`
   padding: 10px;

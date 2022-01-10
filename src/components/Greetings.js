@@ -3,24 +3,14 @@ import styled, { keyframes, css } from "styled-components";
 import { HighLight } from "../styledComponents/HomeStyles";
 
 function Greetings(props) {
-  const [hour, setHour] = useState();
   const [greetTxt, setGreetTxt] = useState("");
 
   useEffect(() => {
+    const date = new Date();
+    const hour = date.getHours();
     if (hour < 12) setGreetTxt(" Good Morning");
     else if (hour < 15) setGreetTxt(" Good Afternoon");
     else if (hour < 24) setGreetTxt(" Good Evening");
-  }, [hour]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const date = new Date();
-      setHour(date.getHours());
-    }, 1000);
-
-    return () => {
-      clearInterval(interval);
-    };
   }, []);
 
   return (
@@ -35,7 +25,7 @@ function Greetings(props) {
   );
 }
 
-export default Greetings;
+export default React.memo(Greetings);
 
 const slide = keyframes`
     to{

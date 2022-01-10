@@ -1,12 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 import Logo from "./animations/Logo";
-import Fade from "./animations/Fade";
-import { Column, Row, Image } from "../styledComponents/HomeStyles";
 import Glass from "./animations/Glass";
 import Arrow from "./animations/Arrow";
 
-function HomeCard() {
+function Motive() {
   const logoRef = useRef(null);
   const fadeRef = useRef(null);
   const screenPosition = window.innerHeight;
@@ -54,7 +52,7 @@ function HomeCard() {
   );
 }
 
-export default HomeCard;
+export default Motive;
 
 const Card = styled.div`
   width: 100%;

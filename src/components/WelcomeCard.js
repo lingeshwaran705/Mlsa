@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Wraper, Row, Column, HighLight } from "../styledComponents/HomeStyles";
 import Arrow from "./animations/Arrow";
 import FloatingActionButton from "./FloatingActionButton";
@@ -49,4 +49,4 @@ function WelcomeCard() {
   );
 }
 
-export default WelcomeCard;
+export default React.memo(WelcomeCard);

@@ -3,7 +3,9 @@ import { technical, nonTechnical } from "../../data/Domain";
 
 const domainSlice = createSlice({
   name: "domain",
-  initialState: { value: { open: false, data: [] } },
+  initialState: {
+    value: { open: false, data: [...technical, ...nonTechnical] },
+  },
   reducers: {
     setOpen: (state, action) => {
       state.value.open = action.payload;
