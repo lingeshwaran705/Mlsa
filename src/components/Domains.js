@@ -24,7 +24,7 @@ function Domains() {
         </IconButton>
       </Header>
       {domain.data.map((item) => {
-        return <DomainCard {...item} />;
+        return <DomainCard animation={true} {...item} />;
       })}
     </Container>
   );
@@ -54,6 +54,6 @@ const Container = styled.div`
   top: 0;
   bottom: 0;
   right: ${(props) => (props.isOpen ? "0" : "100%")};
-  transition: 0.6s;
+  transition: 0.4s;
   z-index: 3;
 `;

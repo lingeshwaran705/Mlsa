@@ -12,23 +12,35 @@ const Slide = React.forwardRef((props, ref) => {
 export default Slide;
 
 const slide = keyframes`
+from{
+  opacity:0;
+}
     to{
         opacity:1;
         transform:translate(0);
     }
 `;
 
+const fade = keyframes`
+    from{
+      opacity:1;
+    }
+    to{
+      opacity:0 !important;
+    }
+`;
+
 const Wrap = styled.div`
   transform: ${(props) =>
     props.right ? "translateX(-200px)" : "translateX(200px)"};
-  opacity: ${(props) => (props.animate ? "" : "0")};
-  trasition: all 0.5s;
-  animation: ${(props) =>
+  ${(props) =>
     props.animate
       ? css`
-          ${slide} 1s ease forwards
+          animation: ${slide} 1s ease forwards;
         `
-      : ""};
+      : css`
+          animation: ${fade} 1s ease forwards;
+        `};
   @media (max-width: 768px) {
     width: 100%;
     margin: 0;

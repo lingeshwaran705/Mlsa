@@ -2,9 +2,11 @@ import { CardActionArea } from "@mui/material";
 import React, { useRef, useEffect, useState } from "react";
 import styled from "styled-components";
 import Slide from "./animations/Slide";
+import { useSelector } from "react-redux";
 
 function DomainCard(props) {
   const screenPosition = window.innerHeight;
+  const domain = useSelector((state) => state.domain.value);
   const [animate, setAnimate] = useState(true);
   const domainCardRef = useRef(null);
 
@@ -28,7 +30,11 @@ function DomainCard(props) {
   }, []);
 
   return (
-    <Slide animate={animate} ref={domainCardRef} {...props}>
+    <Slide
+      animate={props.animation ? domain.open : animate}
+      ref={domainCardRef}
+      {...props}
+    >
       <Wrap>
         <CardActionArea
           sx={{
@@ -53,6 +59,7 @@ export default DomainCard;
 
 const Wrap = styled.div`
   width: 90%;
+  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.3);
   @media (max-width: 768px) {
     margin: 30px auto;
     width: 90%;
@@ -68,6 +75,7 @@ const Wrap = styled.div`
 const Container = styled.div`
   width: 100%;
   height: 100%;
+  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.3);
   background: linear-gradient(
     130deg,
     rgba(225, 225, 225, 0.1),
