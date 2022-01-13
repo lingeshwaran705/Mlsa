@@ -111,16 +111,6 @@ export const Logo = styled.nav`
   }
 `;
 
-export const CloseIcon = styled.div`
-  width: 100%;
-  & > button {
-    float: right;
-    margin: 20px;
-    font-size: 20px;
-    cursor: pointer;
-  }
-`;
-
 //home
 
 export const Wraper = styled.div`

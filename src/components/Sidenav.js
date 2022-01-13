@@ -8,12 +8,11 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
-import { Inner, Menu, CloseIcon } from "../styledComponents/HomeStyles";
+import { Inner, Menu } from "../styledComponents/HomeStyles";
 import { useSelector, useDispatch } from "react-redux";
 import { openSidebar } from "../features/home/sideBar";
 import { setPage } from "../features/home/Route";
 import { useNavigate } from "react-router-dom";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Layer3d from "./animations/Layer3d";
 
 const menu = [
@@ -22,6 +21,7 @@ const menu = [
   { id: 3, icon: "far fa-images", title: "Gallery" },
   { id: 4, icon: "fas fa-award", title: "Past Events" },
   { id: 5, icon: "far fa-calendar-check", title: "Registeration" },
+  { id: 6, icon: "fas fa-blog", title: "Blogs" },
 ];
 
 function Sidenav() {
@@ -29,20 +29,31 @@ function Sidenav() {
   const navigate = useNavigate();
   const sidebar = useSelector((state) => state.sidebar.value);
   const page = useSelector((state) => state.page.value);
+  const domain = useSelector((state) => state.domain.value);
 
   const clickHandler = (p) => {
-    navigate(p);
+    dispatch(setPage(p));
+    dispatch(openSidebar(false));
     setTimeout(() => {
-      dispatch(setPage(p));
-      dispatch(openSidebar(false));
+      navigate(p);
     }, 400);
   };
 
   useEffect(() => {
-    sidebar
-      ? (document.body.style.overflow = "hidden")
-      : (document.body.style.overflow = "hidden auto");
+    if (!domain.open) {
+      sidebar
+        ? (document.body.style.overflow = "hidden")
+        : (document.body.style.overflow = "hidden auto");
+    }
   }, [sidebar]);
+
+  useEffect(() => {
+    if (page === "Core Team") {
+      document.body.style.background = "black";
+    } else {
+      document.body.style.background = "white";
+    }
+  }, [page]);
 
   return (
     <>
@@ -74,13 +85,6 @@ function Sidenav() {
           <div className="close"></div>
         </List>
         <Layer3d />
-        <CloseIcon>
-          <IconButton onClick={() => dispatch(openSidebar(false))}>
-            <ArrowForwardIcon
-              sx={{ width: "25px", height: "30px", fill: "white" }}
-            />
-          </IconButton>
-        </CloseIcon>
       </Menu>
     </>
   );

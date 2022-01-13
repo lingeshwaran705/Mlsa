@@ -1,10 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { openSidebar } from "../../features/home/sideBar";
 
 function Backdrop() {
+  const dispatch = useDispatch();
   const state = useSelector((state) => state.sidebar.value);
-  return <Wrap open={state}></Wrap>;
+  return (
+    <Wrap onClick={() => dispatch(openSidebar(false))} open={state}></Wrap>
+  );
 }
 
 export default Backdrop;

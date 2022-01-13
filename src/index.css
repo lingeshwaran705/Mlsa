@@ -28,16 +28,16 @@ a {
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #444;
+    background: #333;
     border-radius: 10px;
     margin: 10px;
   }
 
   ::-webkit-scrollbar-track-piece {
-    background: unset;
+    background: #666;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #666;
+    background: #999;
   }
 }

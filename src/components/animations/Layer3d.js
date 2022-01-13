@@ -54,7 +54,7 @@ const Wraper = styled.div`
     height: 110px;
     background: rgba(255, 0, 56, 0.8);
     position: absolute;
-    top: ${(props) => (props.sidebar ? "70%" : "100%")};
+    top: ${(props) => (props.sidebar ? "75%" : "100%")};
     left: ${(props) => (props.sidebar ? "50%" : "100%")};
     color: white;
     letter-spacing: 2px;

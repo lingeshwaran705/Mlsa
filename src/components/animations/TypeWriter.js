@@ -1,26 +1,49 @@
-import React, { useEffect, useState } from "react";
-import { LinearGradientText } from "../../styledComponents/HomeStyles";
+import React, { useState, useEffect } from "react";
 
-function TypeWriter(props) {
-  var i = 0;
-  var [text, setText] = useState("");
+const sentences = [
+  "Improve Your Knowledge",
+  "Build Your Carrer",
+  "Doing Real Time Problems",
+  "Solve The Problems",
+];
+
+function TypeWriter() {
+  const [text, setText] = useState({ iteration: 0, content: "" });
+
+  const [sentence, setSentence] = useState({
+    content: "",
+    count: 0,
+    end: false,
+  });
+
+  const element = <li>{text}</li>;
 
   useEffect(() => {
-    setTimeout(() => {
-      setInterval(() => {
-        if (i <= props.text.length - 1) {
-          setText((prev) => prev + props.text[i]);
-          i++;
-        }
-      }, 150);
-    }, 200);
-    console.log(props.text);
-  }, []);
+    const interval = setTimeout(() => {
+      let i = text.iteration;
+      let sentenceCount = sentence.count;
+      if (i <= sentences[sentenceCount].length - 1) {
+        setText((prev) => ({
+          ...prev,
+          content: prev.content + sentences[sentenceCount][i],
+          iteration: i + 1,
+        }));
+      } else {
+        setText((prev) => ({ ...prev, end: true }));
+      }
+    }, 150);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [text.iteration]);
+
+  useEffect(() => {}, []);
 
   return (
-    <LinearGradientText as="span" {...props}>
-      {text}
-    </LinearGradientText>
+    <ul>
+      <li>{text.content}</li>
+    </ul>
   );
 }
 

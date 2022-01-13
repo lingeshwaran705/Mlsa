@@ -3,17 +3,18 @@ import styled from "styled-components";
 import Logo from "./animations/Logo";
 import DomainCard from "./DomainCard";
 import Arrow from "./animations/Arrow";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { setDomain, setOpen } from "../features/home/domain";
 import Domains from "./Domains";
 
 function DomainSelection() {
+  const scroll = useSelector((state) => state.scroll.value);
   const logoRef = useRef(null);
   const screenPosition = window.innerHeight;
   const [animate, setAnimate] = useState(false);
   const dispatch = useDispatch();
 
-  const handleScroll = () => {
+  useEffect(() => {
     if (logoRef.current) {
       const logoPosition = logoRef.current.getBoundingClientRect().top;
       if (logoPosition < screenPosition) {
@@ -22,14 +23,7 @@ function DomainSelection() {
         setAnimate(false);
       }
     }
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  }, [scroll.scrollY]);
 
   const clickHandler = (type) => {
     dispatch(setOpen(true));
@@ -72,4 +66,5 @@ const Wrap = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
   }
+  background: black;
 `;

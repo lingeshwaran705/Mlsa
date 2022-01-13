@@ -4,7 +4,7 @@ import DomainCard from "./DomainCard";
 import { IconButton } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useDispatch, useSelector } from "react-redux";
-import { setDomain, setOpen } from "../features/home/domain";
+import { setOpen } from "../features/home/domain";
 
 function Domains() {
   const domain = useSelector((state) => state.domain.value);
@@ -54,6 +54,9 @@ const Container = styled.div`
   top: 0;
   bottom: 0;
   right: ${(props) => (props.isOpen ? "0" : "100%")};
-  transition: 0.4s;
+  transition: 0.5s;
   z-index: 3;
+  @media (max-width: 768px) {
+    transition: 0.1s;
+  }
 `;
